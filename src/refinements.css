@@ -6,3 +6,85 @@
 .button:focus-visible, .icon-btn:focus-visible, .nav-item:focus-visible, .segmented button:focus-visible, .today-btn:focus-visible, .link-button:focus-visible { outline: 2px solid #79aaff; outline-offset: 2px; }
 .calendar-nav strong { min-width: 58px; text-align: center; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+/* Tesoura Preta · linguagem GlassLiquid */
+:root {
+  --tp-glass: rgba(16, 31, 49, .62);
+  --tp-glass-strong: rgba(20, 42, 63, .78);
+  --tp-line: rgba(146, 220, 255, .18);
+  --tp-cyan: #6de3ff;
+  --tp-lilac: #b99aff;
+}
+body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(48, 156, 195, .18), transparent 25rem),
+    radial-gradient(circle at 90% 2%, rgba(125, 88, 222, .17), transparent 28rem),
+    linear-gradient(145deg, #06111d 0%, #0a1727 45%, #07111d 100%);
+}
+.shell::before, .shell::after { content: ''; position: fixed; pointer-events: none; z-index: 0; border-radius: 999px; filter: blur(2px); }
+.shell::before { width: 18rem; height: 18rem; left: 18%; top: 28%; background: rgba(43, 178, 213, .06); }
+.shell::after { width: 22rem; height: 22rem; right: 8%; bottom: -8rem; background: rgba(149, 98, 229, .07); }
+.sidebar, .topbar, .card, .metric, .modal {
+  background: linear-gradient(135deg, rgba(18, 39, 58, .72), rgba(8, 21, 35, .62));
+  border-color: var(--tp-line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 22px 70px rgba(0,0,0,.18);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+.sidebar { position: relative; z-index: 2; }
+.main { position: relative; z-index: 1; }
+.topbar { border-color: var(--tp-line); }
+.brand-orbit { background: linear-gradient(145deg, rgba(72, 208, 242, .28), rgba(137, 87, 224, .22)); border-color: rgba(112, 231, 255, .55); box-shadow: 0 0 28px rgba(74, 220, 255, .18); }
+.brand-orbit { font-size: 0; }
+.brand-orbit::after { content: 'TP'; font-size: 11px; }
+.brand > div:nth-child(2) { font-size: 0; }
+.brand > div:nth-child(2)::after { content: 'TESOURA PRETA\A 235 BARBEARIA'; white-space: pre; font-size: 11px; line-height: 1.55; letter-spacing: .7px; color: #eaf8ff; font-weight: 700; }
+.brand > div:nth-child(2)::first-line { font-family: 'Space Grotesk', sans-serif; }
+.nav-link, .btn, .select-btn, .global-search, .org-switch, .chat-compose, .modal input, .modal select { background-color: rgba(11, 29, 45, .5); border-color: rgba(140, 215, 246, .16); }
+.nav-link:hover, .nav-link.active { background: linear-gradient(100deg, rgba(53, 148, 189, .25), rgba(115, 92, 205, .18)); border-color: rgba(109, 227, 255, .22); }
+.btn.primary { background: linear-gradient(135deg, #6de3ff, #9274f5); border-color: rgba(255,255,255,.24); color: #071524; box-shadow: 0 10px 30px rgba(78, 185, 235, .22); }
+.btn.primary:hover, .text-btn:hover, .challenge-foot button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.card, .metric { transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.card:hover, .metric:hover { border-color: rgba(109, 227, 255, .3); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 25px 80px rgba(0,0,0,.24); }
+.page-head h1 { letter-spacing: -.8px; }
+.metric-icon.cyan, .metric-icon.violet, .metric-icon.amber, .metric-icon.green { box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 0 22px rgba(89, 213, 247, .08); }
+.modal-backdrop { backdrop-filter: blur(12px); background: rgba(1, 10, 20, .68); }
+.toast { box-shadow: 0 15px 38px rgba(0,0,0,.3); backdrop-filter: blur(14px); }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--tp-cyan); outline-offset: 3px; }
+
+/* Avatares Tesoura Preta: identidade local, sem dependência de imagens externas. */
+.avatar { position: relative; border: 1px solid rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 6px 18px rgba(0,0,0,.18); }
+.avatar::after { content: ''; position: absolute; width: 7px; height: 7px; right: -1px; bottom: 0; border-radius: 50%; background: #5de0b1; border: 2px solid #102235; box-shadow: 0 0 9px rgba(93,224,177,.65); }
+.avatar.amber::after { background: #f3bd68; box-shadow: 0 0 9px rgba(243,189,104,.6); }
+.avatar.violet::after { background: #be9aff; box-shadow: 0 0 9px rgba(190,154,255,.6); }
+.avatar.green::after { background: #5de0b1; }
+.deal-row > .avatar, .activity > .avatar { flex-shrink: 0; }
+.user-mini .avatar::after { width: 6px; height: 6px; }
+.org-switch { cursor: pointer; transition: border-color .2s ease, background .2s ease; }
+.org-switch:hover { border-color: rgba(109,227,255,.4); background: rgba(24,57,79,.7); }
+.nav-scroll { scrollbar-width: thin; scrollbar-color: rgba(109,227,255,.28) transparent; }
+.nav-scroll::-webkit-scrollbar { width: 5px; }
+.nav-scroll::-webkit-scrollbar-thumb { background: rgba(109,227,255,.25); border-radius: 6px; }
+.metric small b, .score-label b, .challenge-score span { text-shadow: 0 0 14px rgba(83,213,166,.25); }
+
+/* Estado inicial limpo e onboarding da 235 Barbearia */
+.role-switch { display:flex; gap:3px; padding:3px; border-radius:9px; background:rgba(9,24,38,.55); border:1px solid rgba(141,219,246,.16); }
+.role-switch button { border:0; background:transparent; color:#88a4b7; border-radius:6px; padding:8px 10px; font-size:10px; }
+.role-switch button.selected { color:#061524; background:linear-gradient(135deg,#6de3ff,#b99aff); font-weight:700; }
+.empty-chart { height:220px; display:grid; place-items:center; text-align:center; color:#85a0b2; }
+.empty-chart > div { display:flex; align-items:center; flex-direction:column; gap:8px; max-width:280px; }
+.empty-chart svg { color:#6de3ff; filter:drop-shadow(0 0 14px rgba(109,227,255,.35)); }
+.empty-chart b, .empty-state b { color:#e4f2fb; font-size:13px; }
+.empty-chart span, .empty-state p { color:#7690a4; font-size:10px; line-height:1.45; margin:0 0 8px; }
+.score-ring.empty { background:conic-gradient(#6de3ff 0 4%,#1b3d50 4% 100%); }
+.onboarding { display:grid; gap:7px; border-top:1px solid #1d384a; padding-top:15px; margin-top:18px; }
+.onboarding button { border:0; background:transparent; color:#9db5c5; padding:8px 0; display:flex; align-items:center; gap:7px; font-size:10px; text-align:left; }
+.onboarding button svg:last-child { margin-left:auto; color:#6de3ff; }
+.empty-state { min-height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:7px; padding:22px; }
+.empty-state > span { width:40px; height:40px; display:grid; place-items:center; border-radius:12px; color:#6de3ff; background:rgba(58,166,197,.14); border:1px solid rgba(109,227,255,.2); }
+.empty-state button { border:0; background:transparent; color:#6de3ff; font-size:10px; display:flex; gap:4px; align-items:center; }
+.empty-list .card-head { margin-bottom:0; }
+.org-menu { position:absolute; top:48px; left:6px; right:6px; z-index:4; padding:6px; border:1px solid rgba(141,219,246,.22); border-radius:9px; background:rgba(12,30,47,.96); box-shadow:0 18px 45px rgba(0,0,0,.3); }
+.org-menu button { width:100%; border:0; background:transparent; color:#d8edf6; padding:9px; display:flex; gap:7px; align-items:center; font-size:10px; text-align:left; }
+.org-menu button svg { margin-left:auto; color:#6de3ff; }
+.org-dot { width:7px; height:7px; border-radius:50%; background:#5de0b1; }
+@media(max-width:680px){.role-switch{display:none}.page-head{flex-wrap:wrap}.empty-chart{height:180px}}
